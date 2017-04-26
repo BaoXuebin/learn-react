@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Profile from './Profile';
+// import Profile from './Profile';
+import Deskmark from './Deskmark';
 
 // function App() {
 //     return (
@@ -13,9 +14,10 @@ import Profile from './Profile';
 const app = document.createElement('div');
 document.body.appendChild(app);
 
-const props = {
-    name: 'BaoXuebin',
-    age: 21
-}
+// const props = {
+//     name: 'BaoXuebin',
+//     age: 21
+// };
 
-ReactDOM.render(<Profile {...props} />, app);
+// ReactDOM.render(<Profile {...props} />, app);
+ReactDOM.render(<Deskmark />, app);

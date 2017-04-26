@@ -4,10 +4,8 @@ const propTypes = {
     hobby: PropTypes.string.isRequired
 };
 
-class Hobby extends React.Component {
-    render() {
-        return <li>{this.props.hobby}</li>;
-    }
+function Hobby({ hobby }) {
+    return <li>{hobby}</li>;
 }
 
 Hobby.propTypes = propTypes;
