@@ -1,9 +1,13 @@
 .cr-content {
-    height: 350px;
-    overflow-y: auto;
+    min-height: 350px;
 }
 
 .other-item {
-    background-color: red;
+    display: block;
+}
+
+.self-item {
+    display: block;
+    text-align: right;
     height: 50px;
 }

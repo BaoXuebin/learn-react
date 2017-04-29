@@ -8,7 +8,7 @@ function OtherItem({ data }) {
     const messageObj = data;
     return (
         <div className="other-item">
-            {messageObj.author}: {messageObj.content};
+            {messageObj.author}: {messageObj.content}
         </div>
     );
 }

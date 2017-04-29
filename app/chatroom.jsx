@@ -12,6 +12,7 @@ class Chatroom extends React.Component {
         this.state = {
             messages: []
         };
+        this.body = document.body;
         this.handleSendMessage = this.handleSendMessage.bind(this);
     }
 
@@ -20,6 +21,7 @@ class Chatroom extends React.Component {
         this.setState({
             messages
         });
+        this.body.scrollTop = window.innerHeight + 1000;
     }
 
     render() {
