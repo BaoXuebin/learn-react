@@ -1,0 +1,9 @@
+.cr-content {
+    height: 350px;
+    overflow-y: auto;
+}
+
+.other-item {
+    background-color: red;
+    height: 50px;
+}
