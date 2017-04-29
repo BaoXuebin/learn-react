@@ -7,6 +7,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ROOT_PATH = path.resolve(__dirname);
 const APP_PATH = path.resolve(ROOT_PATH, 'app');
 const BUILD_PATH = path.resolve(ROOT_PATH, 'build');
+const TEMPLATE_PATH = path.resolve(ROOT_PATH, 'src/assets');
 
 module.exports = {
     entry: {
@@ -48,7 +49,8 @@ module.exports = {
     plugins: [
         // new Ext('css/style.css')
         new HtmlWebpackPlugin({
-            title: 'my first react app'
+            filename: 'index.html',
+            template: path.resolve(TEMPLATE_PATH, 'index.html')
         })
     ]
 };
