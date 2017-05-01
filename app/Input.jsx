@@ -12,11 +12,12 @@ class Input extends React.Component {
         const { sendMessage } = this.props;
         const sendMessageFoo = (event) => {
             const content = this.content.value;
-            if (event.ctrlKey && event.keyCode === 13 && content !== '') {
+            if (event.altKey && event.keyCode === 13 && content !== '') {
                 sendMessage({
                     id: uuid.v4(),
                     type: 'self',
                     author: 'BaoXuebin',
+                    time: new Date().getTime(),
                     content
                 });
                 this.content.value = '';
@@ -24,7 +25,7 @@ class Input extends React.Component {
         };
         return (
             <div className="cr-input">
-                <textarea ref={(c) => { this.content = c; }} className="form-control" placeholder="说两句吧:-)" rows="4" onKeyDown={sendMessageFoo} />
+                <textarea ref={(c) => { this.content = c; }} className="form-control" placeholder="说两句吧:-), alt+enter 发送消息" rows="4" onKeyDown={sendMessageFoo} />
             </div>
         );
     }

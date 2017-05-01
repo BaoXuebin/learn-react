@@ -8,7 +8,16 @@ function OtherItem({ data }) {
     const messageObj = data;
     return (
         <div className="other-item">
-            {messageObj.author}: {messageObj.content}
+            <img src={messageObj.author} alt={messageObj.author} className="avatar" />
+            <div className="author">
+                {messageObj.author}
+                <span className="time">{messageObj.time}</span>
+            </div>
+            <div className="panel panel-default content">
+                <div className="panel-body">
+                    {messageObj.content}
+                </div>
+            </div>
         </div>
     );
 }

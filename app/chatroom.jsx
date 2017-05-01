@@ -16,12 +16,15 @@ class Chatroom extends React.Component {
         this.handleSendMessage = this.handleSendMessage.bind(this);
     }
 
+    componentDidUpdate() {
+        window.scrollTo(0, document.body.scrollHeight);
+    }
+
     handleSendMessage(message) {
         const messages = [...this.state.messages, message];
         this.setState({
             messages
         });
-        this.body.scrollTop = window.innerHeight + 1000;
     }
 
     render() {

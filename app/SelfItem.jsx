@@ -8,7 +8,16 @@ function SelfItem({ data }) {
     const messageObj = data;
     return (
         <div className="self-item">
-            {messageObj.content} :{messageObj.author}
+            <img src={messageObj.author} alt={messageObj.author} className="avatar" />
+            <div className="author">
+                <span className="time">{messageObj.time}</span>
+                {messageObj.author}
+            </div>
+            <div className="panel panel-default content">
+                <div className="panel-body">
+                    {messageObj.content}
+                </div>
+            </div>
         </div>
     );
 }

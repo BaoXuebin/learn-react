@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Chatroom from './Chatroom';
+import Main from './Main';
 
-ReactDOM.render(<Chatroom />, document.getElementById('chatroom'));
+ReactDOM.render(<Main />, document.getElementById('chatroom'));

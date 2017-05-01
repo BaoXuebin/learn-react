@@ -33,6 +33,8 @@
     "marked": "^0.3.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-websocket": "^1.1.7",
+    "socket.io-client": "^1.7.3",
     "uuid": "^3.0.1"
   }
 }

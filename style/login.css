@@ -1,0 +1,22 @@
+.text-center {
+    text-align: center;
+}
+
+.login {
+    width: 240px;
+    margin: 100px auto;
+}
+
+.login input {
+    margin-bottom: 20px;
+}
+
+.login button {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login p {
+    text-align: center;
+    color: red;
+}
