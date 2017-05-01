@@ -16,7 +16,7 @@
     float: right;
 }
 
-.self-item .author {
+.self-item .name {
     float: right;
     width: 90%;
     height: 30px;
@@ -41,7 +41,7 @@
     float: left;
 }
 
-.other-item .author {
+.other-item .name {
     float: left;
     width: 90%;
     height: 30px;

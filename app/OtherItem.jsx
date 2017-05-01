@@ -8,9 +8,9 @@ function OtherItem({ data }) {
     const messageObj = data;
     return (
         <div className="other-item">
-            <img src={messageObj.author} alt={messageObj.author} className="avatar" />
-            <div className="author">
-                {messageObj.author}
+            <img src={messageObj.name} alt={messageObj.name} className="avatar" />
+            <div className="name">
+                {messageObj.name}
                 <span className="time">{messageObj.time}</span>
             </div>
             <div className="panel panel-default content">

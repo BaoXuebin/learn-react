@@ -15,9 +15,6 @@ class Input extends React.Component {
             if (event.altKey && event.keyCode === 13 && content !== '') {
                 sendMessage({
                     id: uuid.v4(),
-                    type: 'self',
-                    author: 'BaoXuebin',
-                    time: new Date().getTime(),
                     content
                 });
                 this.content.value = '';
