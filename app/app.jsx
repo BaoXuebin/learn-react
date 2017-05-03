@@ -1,16 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Profile from './Profile';
-import Deskmark from './Deskmark';
+import Todo from './components/Todo';
+import '../style/app.css';
 
-// function App() {
-//     return (
-//         <div className="container">
-//             <h1>Hello Wordlds!</h1>
-//         </div>
-//     );
-// }
-//
+
 const app = document.createElement('div');
 document.body.appendChild(app);
 
@@ -20,4 +13,4 @@ document.body.appendChild(app);
 // };
 
 // ReactDOM.render(<Profile {...props} />, app);
-ReactDOM.render(<Deskmark />, app);
+ReactDOM.render(<Todo />, app);
