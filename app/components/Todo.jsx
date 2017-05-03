@@ -32,9 +32,9 @@ class Todo extends React.Component {
         });
     }
 
-    createTodo() {
+    createTodo(content) {
         this.foo = '';
-        TodoAction.create({ id: uuid.v4(), content: '3rd stuff' });
+        TodoAction.create({ id: uuid.v4(), content });
     }
 
     deleteTodo(id) {
