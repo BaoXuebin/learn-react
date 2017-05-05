@@ -21,7 +21,7 @@ class Chatroom extends React.Component {
             users: this.props.users
         };
         // 昵称
-        this.name = this.props.name;
+        this.name = null;
         // socket 对象
         this.socket = this.props.socket;
         // 注册发送信息方法
@@ -29,6 +29,7 @@ class Chatroom extends React.Component {
     }
 
     componentDidMount() {
+        this.name = this.props.name;
         // 监听聊天室消息
         this.socket.on('msg', (message) => {
             if (message) {
