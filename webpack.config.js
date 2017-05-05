@@ -24,13 +24,6 @@ module.exports = {
         inline: true
     },
     module: {
-        // preLoaders: [
-        //     {
-        //         test: /\.jsx?$/,
-        //         loaders: ['eslint'],
-        //         include: APP_PATH
-        //     }
-        // ],
         rules: [
             {
                 test: /\.jsx$/,
