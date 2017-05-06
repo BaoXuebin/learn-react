@@ -30,12 +30,15 @@
     "webpack-dev-server": "^2.4.4"
   },
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "marked": "^0.3.6",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
     "react-websocket": "^1.1.7",
     "redux": "^3.6.0",
+    "redux-logger": "^3.0.1",
+    "redux-thunk": "^2.2.0",
     "socket.io-client": "^1.7.3",
     "uuid": "^3.0.1"
   }
