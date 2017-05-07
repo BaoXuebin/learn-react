@@ -1,11 +1,18 @@
-import { Constants, login, logout } from '../actions/actions';
+import { combineReducers } from 'redux';
+import Constants from '../actions/actions';
 
-export function chatroom(state = [], action) {
+function login(state, action) {
     switch (action.type) {
         case Constants.LOGIN:
-
-            break;
+            return Object.assign({}, state, {
+                name: action.name,
+                error: action.error,
+                users: action.users
+            });
         default:
-
+            return state;
     }
 }
+
+const rootReducer = combineReducers({ login });
+export default rootReducer;

@@ -1,13 +1,23 @@
-// 该文件用于创建数据流
+import MySocket from '../utils/MySocket';
+
 export const Constants = {
     LOGIN: 'LOGIN',
     LOGOUT: 'LOGOUT'
 };
 
-export function login(name) {
-    return { type: Constants.LOGIN, name };
+const mySocket = new MySocket();
+
+function login(name, data) {
+    return {
+        type: Constants.LOGIN,
+        name,
+        error: data.result === 'success' ? '' : data.result,
+        users: !data.users ? [] : data.users
+    };
 }
 
-export function logout(name) {
-    return { type: Constants.LOGOUT, name };
+export function fetchLogin(name) {
+    return () => {
+        mySocket.login(name, data => login(name, data));
+    };
 }

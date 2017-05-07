@@ -1,5 +1,4 @@
 import React from 'react';
-import io from 'socket.io-client';
 import Login from './Login';
 import Chatroom from './Chatroom';
 
@@ -18,32 +17,32 @@ class Main extends React.Component {
 
     // 建立 socket 连接
     componentDidMount() {
-        this.socket = io('ws://10.10.17.8:3000');
+        // this.socket = new MySocket();
     }
 
     // 处理加入按钮的点击事件
     handleClick(name) {
-        // this.socket = io('ws://localhosts:3000');
-        const socket = this.socket;
-        if (socket) {
-            socket.emit('login', { name });
-            socket.removeAllListeners('login');
-            socket.on('login', (data) => {
-                if (data.result === 'success') {
-                    this.users = data.users;
-                    // 跳转
-                    this.setState({
-                        logined: true,
-                        name
-                    });
-                } else if (data.result === 'invalid name') {
-                    socket.emit('error', '昵称被占用');
-                } else {
-                    socket.emit('error', '未知错误');
-                }
-            });
-        }
-        return socket;
+        this.props.dispatch(fetchLogin(name));
+        // const socket = this.socket;
+        // if (socket) {
+        //     socket.emit('login', { name });
+        //     socket.removeAllListeners('login');
+        //     socket.on('login', (data) => {
+        //         if (data.result === 'success') {
+        //             this.users = data.users;
+        //             // 跳转
+        //             this.setState({
+        //                 logined: true,
+        //                 name
+        //             });
+        //         } else if (data.result === 'invalid name') {
+        //             socket.emit('error', '昵称被占用');
+        //         } else {
+        //             socket.emit('error', '未知错误');
+        //         }
+        //     });
+        // }
+        // return socket;
     }
 
     // 退出聊天室
