@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Login from './Login';
 import Chatroom from './Chatroom';
+import fetchLogin from './actions/actions';
 
 class Main extends React.Component {
     constructor(props) {
@@ -18,6 +20,10 @@ class Main extends React.Component {
     // 建立 socket 连接
     componentDidMount() {
         // this.socket = new MySocket();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps);
     }
 
     // 处理加入按钮的点击事件
@@ -60,7 +66,9 @@ class Main extends React.Component {
 
     render() {
         const { logined, name } = this.state;
-        const mainHTML = logined ? <Chatroom name={name} socket={this.socket} users={this.users} disconnect={this.handleDisconnect} /> : <Login onClick={this.handleClick} />;
+        const mainHTML = logined ?
+            <Chatroom name={name} socket={this.socket} users={this.users} disconnect={this.handleDisconnect} /> :
+            <Login login={this.handleClick} />;
         return (
             <div>
                 {mainHTML}
@@ -69,4 +77,17 @@ class Main extends React.Component {
     }
 }
 
-export default Main;
+Main.propTypes = {
+    dispatch: PropTypes.func.isRequired
+};
+
+function mapStateToProps(state) {
+    const { name, error, users } = state;
+    return {
+        name,
+        error,
+        users
+    };
+}
+
+export default connect(mapStateToProps)(Main);

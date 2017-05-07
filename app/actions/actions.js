@@ -1,9 +1,5 @@
 import MySocket from '../utils/MySocket';
-
-export const Constants = {
-    LOGIN: 'LOGIN',
-    LOGOUT: 'LOGOUT'
-};
+import Constants from '../utils/Constants';
 
 const mySocket = new MySocket();
 
@@ -16,8 +12,6 @@ function login(name, data) {
     };
 }
 
-export function fetchLogin(name) {
-    return () => {
-        mySocket.login(name, data => login(name, data));
-    };
+export default function fetchLogin(name) {
+    return dispatch => mySocket.login(name, dispatch, data => login(name, data));
 }

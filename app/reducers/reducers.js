@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import Constants from '../actions/actions';
+import Constants from '../utils/Constants';
 
-function login(state, action) {
+function login(state = {}, action) {
     switch (action.type) {
         case Constants.LOGIN:
             return Object.assign({}, state, {

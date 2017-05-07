@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import '../style/login.css';
 
 const propTypes = {
-    onClick: PropTypes.func.isRequired
+    login: PropTypes.func.isRequired
 };
 
 class Login extends React.Component {
@@ -13,18 +13,7 @@ class Login extends React.Component {
     }
 
     handleClick() {
-        this.props.onClick(this.name.value);
-        // const click = this.props.onClick;
-        // const socket = click(this.name.value);
-        // // 显示错误信息的组件
-        // const error = this.error;
-        // if (socket.connected) {
-        //     socket.on('error', (err) => {
-        //         error.innerHTML = err || '未知错误';
-        //     });
-        // } else {
-        //     error.innerHTML = '连接失败，请刷新页面重试';
-        // }
+        this.props.login(this.name.value);
     }
 
     render() {
