@@ -18,7 +18,7 @@ class Main extends React.Component {
 
     // 建立 socket 连接
     componentDidMount() {
-        this.socket = io('ws://10.10.17.8:3000');
+        this.socket = io('ws://localhost:3000');
     }
 
     // 处理加入按钮的点击事件
