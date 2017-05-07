@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import Constants from '../utils/Constants';
 
-function login(state = {}, action) {
+function actionReducers(state = '', action) {
     switch (action.type) {
         case Constants.LOGIN:
             return Object.assign({}, state, {
@@ -9,10 +9,28 @@ function login(state = {}, action) {
                 error: action.error,
                 users: action.users
             });
+        case Constants.LOGOUT:
+            return Object.assign({}, state, {
+                name: action.name,
+                users: action.users
+            });
+        case Constants.SEND:
+            return {};
         default:
             return state;
     }
 }
 
-const rootReducer = combineReducers({ login });
+function listenerReducers(state = {}, action) {
+    switch (action.type) {
+        case Constants.REGISTER_USER_LISTENER:
+            return Object.assign({}, state, { users: action.users });
+        case Constants.REGISTER_MSG_LISTENER:
+            return Object.assign({}, state, { messages: action.messages });
+        default:
+            return state;
+    }
+}
+
+const rootReducer = combineReducers({ actionReducers, listenerReducers });
 export default rootReducer;

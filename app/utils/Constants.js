@@ -1,5 +1,9 @@
 const Constants = {
-    LOGIN: 'LOGIN'
+    LOGIN: 'LOGIN',
+    LOGOUT: 'LOGOUT',
+    SEND: 'SEND',
+    REGISTER_MSG_LISTENER: 'REGISTER_MSG_LISTENER',
+    REGISTER_USER_LISTENER: 'REGISTER_USER_LISTENER'
 };
 
 export default Constants;
