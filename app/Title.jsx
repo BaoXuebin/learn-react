@@ -14,10 +14,11 @@ class Title extends React.Component {
                     <small>based on react</small>
                     <button className="btn btn-danger pull-right" onClick={this.handleDisconnect} >Disconnet</button>
                 </h2>
+                欢迎，{this.props.name}
             </div>
         );
     }
 }
 
-Title.propTypes = { disconnect: PropTypes.func.isRequired };
+Title.propTypes = { disconnect: PropTypes.func.isRequired, name: PropTypes.string.isRequired };
 export default Title;

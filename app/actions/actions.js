@@ -20,10 +20,10 @@ function logout(name, data) {
     };
 }
 
-function connectListener(state, data) {
-    let users = state.users;
+function userListener(state, data) {
+    let users = state.users.slice(0);
     if (data.type === 'connect') {
-        users = [...state.users, data.user];
+        users = [...users, data.user];
     } else if (data.type === 'disconnect') {
         users.splice(users.indexOf(data.user), 1);
     }
@@ -34,7 +34,12 @@ function connectListener(state, data) {
 }
 
 function messageListener(state, data) {
-    const messages = [...state.messages, data];
+    let messages = [];
+    if (state.messages) {
+        messages = [...state.messages, data];
+    } else {
+        messages.push(data);
+    }
     return {
         type: Constants.REGISTER_MSG_LISTENER,
         messages
@@ -53,10 +58,18 @@ export function fetchLogout(name) {
 
 // 接收消息
 export function registerMessageListener() {
-    return (dispatch, getState) => mySocket.registerMessageListener(data => messageListener(getState(), data));
+    return (dispatch, getState) => mySocket.registerMessageListener(dispatch, data => messageListener(getState(), data));
 }
 
 // 新用户连接
 export function registerUserListener() {
-    return (dispatch, getState) => mySocket.registerUserListener(data => connectListener(getState(), data));
+    return (dispatch, getState) => mySocket.registerUserListener(dispatch, data => userListener(getState(), data));
+}
+
+// 发送信息
+export function sendMessage(content) {
+    mySocket.sendMessage(content);
+    return {
+        type: Constants.SEND
+    };
 }

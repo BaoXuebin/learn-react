@@ -7,10 +7,10 @@ import Info from './Info';
 import '../style/chatroom.css';
 
 const propTypes = {
+    name: PropTypes.string.isRequired,
     users: PropTypes.array.isRequired,
-    disconnect: PropTypes.func.isRequired,
     messages: PropTypes.arrayOf(PropTypes.object).isRequired,
-    events: PropTypes.arrayOf(PropTypes.func.isRequired).isRequired
+    events: PropTypes.object.isRequired
 };
 
 class Chatroom extends React.Component {
@@ -30,13 +30,14 @@ class Chatroom extends React.Component {
         // 2. 聊天内容展示模块
         // 3. 输入模块
         // 4. 人员信息
-        const { messages, users, disconnect } = this.props;
+        const { name, messages, users } = this.props;
+        const { disconnect, send } = this.props.events;
         return (
             <div>
-                <Title disconnect={disconnect} />
+                <Title name={name} disconnect={disconnect} />
                 <div className="left-area">
                     <Content data={messages} />
-                    <Input sendMessage={this.handleSendMessage} />
+                    <Input sendMessage={send} />
                 </div>
                 <div className="right-area">
                     <Info users={users} />

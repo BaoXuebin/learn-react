@@ -1,15 +1,17 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Login from './Login';
-import Chatroom from './Chatroom';
-import { fetchLogin, fetchLogout, registerMessageListener, registerUserListener } from './actions/actions';
+import Chatroom from './chatroom';
+import { fetchLogin, fetchLogout, registerMessageListener, registerUserListener, sendMessage } from './actions/actions';
 
 class Main extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleDisconnect = this.handleDisconnect.bind(this);
         this.registerUserListener = this.registerUserListener.bind(this);
         this.registerMessageListener = this.registerMessageListener.bind(this);
+        this.sendMessage = this.sendMessage.bind(this);
     }
 
     // 加入聊天室
@@ -32,9 +34,19 @@ class Main extends React.Component {
         this.props.dispatch(registerUserListener());
     }
 
+    // 发送信息
+    sendMessage(content) {
+        const message = content;
+        if (message) {
+            message.name = this.props.name;
+            this.props.dispatch(sendMessage(message));
+        }
+    }
+
     render() {
         const { name, error, users, messages } = this.props;
         const events = {
+            send: this.sendMessage,
             disconnect: this.handleDisconnect,
             userListener: this.registerUserListener,
             messageListener: this.registerMessageListener
@@ -45,7 +57,7 @@ class Main extends React.Component {
                     <Login login={this.handleClick} error={error} />
                 }
                 {name !== '' &&
-                    <Chatroom messages={messages} users={users} events={events} />
+                    <Chatroom name={name} messages={messages} users={users} events={events} />
                 }
             </div>
         );
@@ -53,7 +65,6 @@ class Main extends React.Component {
 }
 
 Main.propTypes = {
-    // isLogining: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
     error: PropTypes.string,
     users: PropTypes.arrayOf(PropTypes.string),
@@ -68,12 +79,12 @@ Main.defaultProps = {
 };
 
 function mapStateToProps(state) {
-    console.log(state);
-    const { name, error, users } = state;
+    const { name, error, users, messages } = state;
     return {
         name,
         error,
-        users
+        users,
+        messages
     };
 }
 

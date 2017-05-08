@@ -5,7 +5,7 @@ import SelfItem from './SelfItem';
 import '../style/content.css';
 
 const propTypes = {
-    data: PropTypes.array.isRequired
+    data: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 class Content extends React.Component {

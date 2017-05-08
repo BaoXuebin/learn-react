@@ -16,10 +16,10 @@ export default class MySocket {
                 this.dispatch(this.handleLogoutResponse(data));
             });
             this.socket.on('msg', (data) => {
-                this.messageListener(data);
+                this.dispatch(this.messageListener(data));
             });
             this.socket.on('user', (data) => {
-                this.userListener(data);
+                this.dispatch(this.userListener(data));
             });
         }
     }
@@ -45,15 +45,22 @@ export default class MySocket {
     }
 
     // 接受聊天消息
-    registerMessageListener(callback) {
+    registerMessageListener(dispatch, callback) {
         if (callback) {
+            this.dispatch = dispatch;
             this.messageListener = callback;
         }
     }
 
-    registerUserListener(callback) {
+    registerUserListener(dispatch, callback) {
         if (callback) {
+            this.dispatch = dispatch;
             this.userListener = callback;
         }
+    }
+
+    // 发送消息
+    sendMessage(content) {
+        this.socket.emit('msg', content);
     }
 }
