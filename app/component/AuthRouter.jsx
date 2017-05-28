@@ -6,11 +6,11 @@ const fakeAuth = {
     isAuthenticated: false,
     authenticate(callback) {
         this.isAuthenticated = true;
-        setTimeout(callback, 1000);
+        setTimeout(callback, 100);
     },
     signout(callback) {
         this.isAuthenticated = false;
-        setTimeout(callback, 1000);
+        setTimeout(callback, 100);
     }
 };
 
@@ -53,9 +53,8 @@ const propTypes = { location: PropTypes.object };
 Login.propTypes = propTypes;
 
 // 非公开页面
-const PrivateRoute = ({ component: Component, ...rest }) => (
+const PrivateRoute = ({ component: Component }) => (
     <Route
-      {...rest}
       render={props => (
             fakeAuth.isAuthenticated ? (
                 <Component {...props} />
