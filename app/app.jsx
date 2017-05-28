@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import PreventingTransitionsExample from './component/PreventingTransitionsExample';
+import SidebarExample from './component/SidebarExample';
 
 const app = document.createElement('div');
 document.body.appendChild(app);
 
-ReactDOM.render(<PreventingTransitionsExample />, app);
+ReactDOM.render(<SidebarExample />, app);
