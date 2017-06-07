@@ -28,6 +28,11 @@ class Login extends React.Component {
                     <button className="btn btn-success" onClick={this.handleClick}>Join</button>
                     <p ref={(error) => { this.error = error; }}>{this.props.error}</p>
                 </div>
+                <div className="link">
+                    <i className="fa fa-github" aria-hidden="true" />
+                    &nbsp;&nbsp;
+                    <a href="https://github.com/BaoXuebin/learn-react/tree/redux-chatroom">learn-react</a>
+                </div>
             </div>
         );
     }
