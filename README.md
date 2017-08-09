@@ -3,6 +3,6 @@
 npm: 4.2.0    
 atom: 1.16.0
 
-*聊天室*
+**聊天室**
 
-Get Started.
+[在线演示](http://www.xdbin.com/lab/chatroom_react)
