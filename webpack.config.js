@@ -21,7 +21,8 @@ module.exports = {
     devServer: {
         historyApiFallback: true,
         hot: true,
-        inline: true
+        inline: true,
+        host: '0.0.0.0'
     },
     module: {
         // preLoaders: [

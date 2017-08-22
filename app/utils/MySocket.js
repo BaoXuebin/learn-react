@@ -2,7 +2,7 @@ import io from 'socket.io-client';
 
 export default class MySocket {
     constructor() {
-        this.socket = io('ws://139.129.51.72:3000');
+        this.socket = io('http://127.0.0.1:3000');
         this.handleLoginResponse = null;
         this.handleLogoutResponse = null;
         this.messageListener = null;
